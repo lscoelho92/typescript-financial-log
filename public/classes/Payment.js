@@ -5,6 +5,11 @@ export class Payment {
         this.amount = amount;
     }
     format() {
-        return `${this.recipient} is owed $${this.amount} for ${this.details}`;
+        if (this.amount > 0 && this.details) {
+            return `${this.recipient} owes $${this.amount} for ${this.details}`;
+        }
+        else {
+            return "Please insert an amount greater than 0 and an payment detail.";
+        }
     }
 }
